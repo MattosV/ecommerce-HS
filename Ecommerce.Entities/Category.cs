@@ -2,11 +2,11 @@
 
 namespace Ecommerce.Entities
 {
-    public class MovieSales
+    public class Category
     {
         [Key]
         public int Id { get; set; }
-        public virtual Movie Movies { get; set; }
-        public virtual Sales Sales { get; set; }
+        public int ExternalId { get; set; }
+        public string Name { get; set; }
     }
 }
