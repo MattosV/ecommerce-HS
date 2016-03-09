@@ -102,8 +102,15 @@
   <ItemGroup>
     <Build Include="Category.sql" />
     <Build Include="Client.sql" />
+    <Build Include="User.sql" />
+    <Build Include="Movie.sql" />
+    <Build Include="Sales.sql" />
+    <Build Include="MovieSales.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ecommerce.Database.Local.publish.publish.xml" />
+    <None Include="Ecommerce.Database.Local.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Ecommerce.Database.refactorlog" />
   </ItemGroup>
 </Project>
