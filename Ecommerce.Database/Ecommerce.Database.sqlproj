@@ -98,19 +98,27 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="Deploys" />
+    <Folder Include="PostScripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Category.sql" />
-    <Build Include="Client.sql" />
-    <Build Include="User.sql" />
-    <Build Include="Movie.sql" />
-    <Build Include="Sales.sql" />
-    <Build Include="MovieSales.sql" />
+    <Build Include="Tables\Category.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ecommerce.Database.Local.publish.xml" />
+    <None Include="Deploys\Ecommerce.Database.Local.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Ecommerce.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Client.sql" />
+    <Build Include="Tables\Movie.sql" />
+    <Build Include="Tables\MovieSales.sql" />
+    <Build Include="Tables\Sales.sql" />
+    <Build Include="Tables\Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostScripts\InsertUsers.sql" />
   </ItemGroup>
 </Project>
