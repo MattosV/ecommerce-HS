@@ -8,5 +8,6 @@ namespace Ecommerce.Entities
         public int Id { get; set; }
         public virtual Movie Movies { get; set; }
         public virtual Sales Sales { get; set; }
+        public int Quantity { get; set; }
     }
 }
