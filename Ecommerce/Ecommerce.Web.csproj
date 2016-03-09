@@ -34,6 +34,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -244,7 +248,28 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.Database\Ecommerce.Database.sqlproj">
+      <Project>{29ca330a-bdad-4ef3-bd3e-7587c5d57422}</Project>
+      <Name>Ecommerce.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.Entities\Ecommerce.Entities.csproj">
+      <Project>{71ba970d-4cca-4164-8ece-fc580a65c560}</Project>
+      <Name>Ecommerce.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.Repository\Ecommerce.Repository.csproj">
+      <Project>{222be445-a290-4590-8e8f-ec29e436dced}</Project>
+      <Name>Ecommerce.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.Services\Ecommerce.Services.csproj">
+      <Project>{91e1e6a1-a502-4787-b117-a85c56128f96}</Project>
+      <Name>Ecommerce.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecommerce.ViewModel\Ecommerce.ViewModel.csproj">
+      <Project>{9c795867-8a29-47aa-9701-136e794f3dbc}</Project>
+      <Name>Ecommerce.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
