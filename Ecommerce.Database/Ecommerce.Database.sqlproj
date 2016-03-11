@@ -106,9 +106,6 @@
     <Build Include="Tables\Category.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Deploys\Ecommerce.Database.Local.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <RefactorLog Include="Ecommerce.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
@@ -117,5 +114,11 @@
     <Build Include="Tables\MovieSales.sql" />
     <Build Include="Tables\Sales.sql" />
     <Build Include="Tables\Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostScripts\InsertUsers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deploys\Ecommerce.Database.publish.xml" />
   </ItemGroup>
 </Project>
