@@ -116,9 +116,6 @@
     <Build Include="Tables\Users.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="PostScripts\InsertUsers.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Deploys\Ecommerce.Database.publish.xml" />
   </ItemGroup>
 </Project>

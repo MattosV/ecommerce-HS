@@ -1,12 +1,15 @@
 ﻿
 
+using System;
+
 namespace Ecommerce.Services
 {
     public class Validation
     {
 
-        public static bool CheckCpf(string vrCPF)
+        public static bool CheckCpf(string vrCPF) //Check if CPF is valid
         {
+            //Check if the CPF saved has special characters and remove them
             string CpfNumber = vrCPF.Replace(".", "");
 
             CpfNumber = CpfNumber.Replace("-", "");
@@ -60,6 +63,23 @@ namespace Ecommerce.Services
             else if (Numbers[10] != 11 - Result) return false;
             return true;
         }
+
+        //public static bool CheckBDate( DateTime Birthday)
+        //{
+        //    DateTime DateToday = DateTime.Today;
+        //    int Age = DateToday.Year - Birthday.Year;            
+            
+        //    if()
+
+         
+        //    return true;
+        //}
+
+
+
+
+
+
 
     }
 }

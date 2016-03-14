@@ -17,7 +17,7 @@ namespace Ecommerce.Entities
         public string Zipcode { get; set; }
         //Client's personal info
         public string Gender { get; set; }
-        public long CPF { get; set; }
+        public string CPF { get; set; }
         public long CardNumber { get; set; }
         public DateTime Birthday { get; set; }
 
