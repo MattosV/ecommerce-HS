@@ -118,7 +118,4 @@
     <Build Include="Tables\Sales.sql" />
     <Build Include="Tables\Users.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="PostScripts\InsertUsers.sql" />
-  </ItemGroup>
 </Project>

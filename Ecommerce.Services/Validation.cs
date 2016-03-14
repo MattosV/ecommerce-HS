@@ -1,4 +1,7 @@
-﻿
+﻿using System.IO;
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Ecommerce.Services
 {
@@ -59,6 +62,63 @@ namespace Ecommerce.Services
             }
             else if (Numbers[10] != 11 - Result) return false;
             return true;
+        }
+
+        public static bool CheckEmail(string Email)
+        {
+            bool ValidEmail = false;
+            int indexArr = Email.IndexOf("@");
+            if (indexArr > 0)
+            {
+                if (Email.IndexOf("@", indexArr + 1) > 0)
+                {
+                    return ValidEmail;
+                }
+
+                int indexDot = Email.IndexOf(".", indexArr);
+                if (indexDot - 1 > indexArr)
+                {
+                    if (indexDot + 1 < Email.Length)
+                    {
+                        string indexDot2 = Email.Substring(indexDot + 1, 1);
+                        if (indexDot2 != ".")
+                        {
+                            ValidEmail = true;
+                        }
+                    }
+                }
+            }
+            return ValidEmail;
+        }
+
+        public Adress CheckCEP(string CEP)
+        {
+            HttpWebRequest requisicao = (HttpWebRequest)WebRequest.Create("http://www.buscacep.correios.com.br/servicos/dnec/consultaLogradouroAction.do? Metodo=listaLogradouro&CEP=" + CEP + "&TipoConsulta=cep");
+            HttpWebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
+            int cont;
+            byte[] buffer = new byte[1000];
+            StringBuilder sb = new StringBuilder();
+            string temp;
+            Stream stream = resposta.GetResponseStream();
+            do
+            {
+                cont = stream.Read(buffer, 0, buffer.Length);
+                temp = Encoding.Default.GetString(buffer, 0, cont).Trim();
+                sb.Append(temp);
+            } while (cont > 0);
+            string pagina = sb.ToString();
+            if (pagina.IndexOf("<font color=\"black\">CEP NAO ENCONTRADO</font>") >= 0)
+            {
+                return null;
+            }
+            else {
+                string street = Regex.Match(pagina, "<td width=\"268\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
+                string neighborhood = Regex.Matches(pagina, "<td width=\"140\" style=\"padding: 2px\">(.*)</td>")[0].Groups[1].Value;
+                string city = Regex.Matches(pagina, "<td width=\"140\" style=\"padding: 2px\">(.*)</td>")[1].Groups[1].Value;
+                string state = Regex.Match(pagina, "<td width=\"25\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
+
+                return new Adress(street, neighborhood, city, state);
+            }
         }
 
     }
