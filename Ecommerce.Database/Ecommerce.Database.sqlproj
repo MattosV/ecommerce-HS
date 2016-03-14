@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Deploys\Ecommerce.Database.Local.publish.xml" />
+    <None Include="Deploys\Ecommerce.Database.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Ecommerce.Database.refactorlog" />
