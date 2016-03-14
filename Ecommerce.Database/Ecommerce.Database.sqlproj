@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{29ca330a-bdad-4ef3-bd3e-7587c5d57422}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -106,6 +106,10 @@
     <Build Include="Tables\Category.sql" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Deploys\Ecommerce.Database.Local.publish.xml" />
+    <None Include="Deploys\Ecommerce.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <RefactorLog Include="Ecommerce.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
@@ -114,8 +118,5 @@
     <Build Include="Tables\MovieSales.sql" />
     <Build Include="Tables\Sales.sql" />
     <Build Include="Tables\Users.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Deploys\Ecommerce.Database.publish.xml" />
   </ItemGroup>
 </Project>

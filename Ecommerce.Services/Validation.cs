@@ -1,15 +1,15 @@
-﻿
-
-using System;
+﻿using System.IO;
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Ecommerce.Services
 {
     public class Validation
     {
 
-        public static bool CheckCpf(string vrCPF) //Check if CPF is valid
+        public static bool CheckCpf(string vrCPF)
         {
-            //Check if the CPF saved has special characters and remove them
             string CpfNumber = vrCPF.Replace(".", "");
 
             CpfNumber = CpfNumber.Replace("-", "");
@@ -64,15 +64,61 @@ namespace Ecommerce.Services
             return true;
         }
 
-        public static bool CheckBDate(DateTime Birthday) //Checks if the user is older than 16 and younger than 150 
+        public static bool CheckEmail(string Email)
         {
-            DateTime DateToday = DateTime.Today;
-            int Age = DateToday.Year - Birthday.Year;
-            if (Birthday.Month > DateToday.Month) Age -= 1;
-            if (Birthday.Month == DateToday.Month || Birthday.Day > DateToday.Day) Age -= 1;
+            bool ValidEmail = false;
+            int indexArr = Email.IndexOf("@");
+            if (indexArr > 0)
+            {
+                if (Email.IndexOf("@", indexArr + 1) > 0)
+                {
+                    return ValidEmail;
+                }
 
-            if (Age >= 16 || Age <= 150) return true;
-            return false;
+                int indexDot = Email.IndexOf(".", indexArr);
+                if (indexDot - 1 > indexArr)
+                {
+                    if (indexDot + 1 < Email.Length)
+                    {
+                        string indexDot2 = Email.Substring(indexDot + 1, 1);
+                        if (indexDot2 != ".")
+                        {
+                            ValidEmail = true;
+                        }
+                    }
+                }
+            }
+            return ValidEmail;
+        }
+
+        public Adress CheckCEP(string CEP)
+        {
+            HttpWebRequest requisicao = (HttpWebRequest)WebRequest.Create("http://www.buscacep.correios.com.br/servicos/dnec/consultaLogradouroAction.do? Metodo=listaLogradouro&CEP=" + CEP + "&TipoConsulta=cep");
+            HttpWebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
+            int cont;
+            byte[] buffer = new byte[1000];
+            StringBuilder sb = new StringBuilder();
+            string temp;
+            Stream stream = resposta.GetResponseStream();
+            do
+            {
+                cont = stream.Read(buffer, 0, buffer.Length);
+                temp = Encoding.Default.GetString(buffer, 0, cont).Trim();
+                sb.Append(temp);
+            } while (cont > 0);
+            string pagina = sb.ToString();
+            if (pagina.IndexOf("<font color=\"black\">CEP NAO ENCONTRADO</font>") >= 0)
+            {
+                return null;
+            }
+            else {
+                string street = Regex.Match(pagina, "<td width=\"268\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
+                string neighborhood = Regex.Matches(pagina, "<td width=\"140\" style=\"padding: 2px\">(.*)</td>")[0].Groups[1].Value;
+                string city = Regex.Matches(pagina, "<td width=\"140\" style=\"padding: 2px\">(.*)</td>")[1].Groups[1].Value;
+                string state = Regex.Match(pagina, "<td width=\"25\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
+
+                return new Adress(street, neighborhood, city, state);
+            }
         }
 
     }
