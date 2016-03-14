@@ -1,14 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
 
-namespace Ecommerce.Services
+namespace Ecommerce.Utils
 {
-    public class Validation
+    public static class Validation
     {
-
         public static bool CheckCpf(string vrCPF)
         {
             string CpfNumber = vrCPF.Replace(".", "");
@@ -92,34 +87,15 @@ namespace Ecommerce.Services
             return ValidEmail;
         }
 
-        public Adress CheckCEP(string CEP)
+        public static Adress CheckCEP(string cep)
         {
-            HttpWebRequest Requisition = (HttpWebRequest)WebRequest.Create("http://www.buscacep.correios.com.br/servicos/dnec/consultaLogradouroAction.do? Metodo=listaLogradouro&CEP=" + CEP + "&TipoConsulta=cep");
-            HttpWebResponse Response = (HttpWebResponse)Requisition.GetResponse();
-            int cont;
-            byte[] buffer = new byte[1000];
-            StringBuilder sb = new StringBuilder();
-            string temp;
-            Stream stream = Response.GetResponseStream();
-            do
-            {
-                cont = stream.Read(buffer, 0, buffer.Length);
-                temp = Encoding.Default.GetString(buffer, 0, cont).Trim();
-                sb.Append(temp);
-            } while (cont > 0);
-            string page = sb.ToString();
-            if (page.IndexOf("<font color=\"black\">CEP NAO ENCONTRADO</font>") >= 0)
+            if (string.IsNullOrWhiteSpace(cep))
             {
                 return null;
             }
-            else {
-                string street = Regex.Match(page, "<td width=\"268\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
-                string neighborhood = Regex.Matches(page, "<td width=\"140\" style=\"padding: 2px\">(.*)</td>")[0].Groups[1].Value;
-                string city = Regex.Matches(page, "<td width=\"140\" style=\"padding: 2px\">(.*)</td>")[1].Groups[1].Value;
-                string state = Regex.Match(page, "<td width=\"25\" style=\"padding: 2px\">(.*)</td>").Groups[1].Value;
 
-                return new Adress(street, neighborhood, city, state);
-            }
+            var result = Correios.Net.SearchZip.GetAddress(cep);
+            return new Adress(result.Street, result.District, result.City, result.State, result.Zip, result.UniqueZip);
         }
 
         public static bool CheckBDate(DateTime Birthday) //Checks if the user is older than 16 and younger than 150 
@@ -132,6 +108,5 @@ namespace Ecommerce.Services
             if (Age >= 16 || Age <= 150) return true;
             return false;
         }
-
     }
 }
