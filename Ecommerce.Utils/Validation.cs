@@ -7,7 +7,7 @@ namespace Ecommerce.Utils
     {
         public static bool CheckCpf(string vrCPF)
         {
-            if (string.IsNullOrEmpty(vrCPF)|| string.IsNullOrWhiteSpace(vrCPF)) return false;
+            if (string.IsNullOrWhiteSpace(vrCPF)) return false;
                    
             var CpfNumber = vrCPF.Replace(".", "");
 
