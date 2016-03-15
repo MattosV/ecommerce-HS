@@ -101,15 +101,5 @@ namespace Ecommerce.Utils
             return new Adress(result.Street, result.District, result.City, result.State, result.Zip, result.UniqueZip);
         }
 
-        public static bool CheckBDate(DateTime Birthday) //Checks if the user is older than 16 and younger than 150 
-        {
-            DateTime DateToday = DateTime.Today;
-            int Age = DateToday.Year - Birthday.Year;
-            if (Birthday.Month > DateToday.Month) Age -= 1;
-            if (Birthday.Month == DateToday.Month || Birthday.Day > DateToday.Day) Age -= 1;
-
-            if (Age >= 16 || Age <= 150) return true;
-            return false;
-        }
     }
 }

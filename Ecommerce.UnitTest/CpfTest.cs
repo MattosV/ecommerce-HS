@@ -29,6 +29,20 @@ namespace Ecommerce.UnitTest
         }
 
         [TestMethod]
+        public void IfAllNumbersAreValid()
+        {
+            var result = Validation.CheckCpf("40720775850");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void IfAllNumbersAreInvalid()
+        {
+            var result = Validation.CheckCpf("40720775800");
+            Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
         public void IfAllNumbersIsZero()
         {
             var result = Validation.CheckCpf("000.000.000-00");
