@@ -6,7 +6,9 @@ namespace Ecommerce.Utils
     {
         public static bool CheckCpf(string vrCPF)
         {
-            string CpfNumber = vrCPF.Replace(".", "");
+            if (string.IsNullOrEmpty(vrCPF)|| string.IsNullOrWhiteSpace(vrCPF)) return false;
+                   
+            var CpfNumber = vrCPF.Replace(".", "");
 
             CpfNumber = CpfNumber.Replace("-", "");
 
@@ -20,6 +22,7 @@ namespace Ecommerce.Utils
             }
 
             if (isEqual || CpfNumber == "12345678909") return false;
+            if (isEqual || CpfNumber == "00000000000") return false;
 
             int[] Numbers = new int[11];
 

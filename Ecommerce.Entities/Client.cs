@@ -18,10 +18,13 @@ namespace Ecommerce.Entities
         //Client's personal info
         public string Gender { get; set; }
         public string CPF { get; set; }
-        public long CardNumber { get; set; }
+        public long CardNumber { get; set; } 
         public DateTime Birthday { get; set; }
 
         public virtual ICollection<Sales> Sales { get; set; } 
         public virtual ICollection<MovieSales> Movies { get; set; } 
+
+        
+
     }
 }
