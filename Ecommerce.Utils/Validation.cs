@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Ecommerce.Utils
 {
@@ -60,23 +61,35 @@ namespace Ecommerce.Utils
             return true;
         }
 
-        public static bool CheckEmail(string Email)
+        public static bool CheckEmail(string email)
         {
             bool ValidEmail = false;
-            int indexArr = Email.IndexOf("@");
+            
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return ValidEmail;
+            }
+
+            if (email.Contains(" "))
+            {
+                return ValidEmail;
+            }
+
+            int indexArr = email.IndexOf("@");
+
             if (indexArr > 0)
             {
-                if (Email.IndexOf("@", indexArr + 1) > 0)
+                if (email.IndexOf("@", indexArr + 1) > 0)
                 {
                     return ValidEmail;
                 }
 
-                int indexDot = Email.IndexOf(".", indexArr);
+                int indexDot = email.IndexOf(".", indexArr);
                 if (indexDot - 1 > indexArr)
                 {
-                    if (indexDot + 1 < Email.Length)
+                    if (indexDot + 1 < email.Length)
                     {
-                        string indexDot2 = Email.Substring(indexDot + 1, 1);
+                        string indexDot2 = email.Substring(indexDot + 1, 1);
                         if (indexDot2 != ".")
                         {
                             ValidEmail = true;
