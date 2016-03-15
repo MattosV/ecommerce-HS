@@ -7,9 +7,12 @@ namespace Ecommerce.Utils
     {
         public static bool CheckCpf(string vrCPF)
         {
-            if (string.IsNullOrEmpty(vrCPF)|| string.IsNullOrWhiteSpace(vrCPF)) return false;
-                   
-            var CpfNumber = vrCPF.Replace(".", "");
+            if (string.IsNullOrWhiteSpace(vrCPF))
+            {
+                return false;
+            }
+
+            string CpfNumber = vrCPF.Replace(".", "");
 
             CpfNumber = CpfNumber.Replace("-", "");
 
@@ -23,7 +26,6 @@ namespace Ecommerce.Utils
             }
 
             if (isEqual || CpfNumber == "12345678909") return false;
-            if (isEqual || CpfNumber == "00000000000") return false;
 
             int[] Numbers = new int[11];
 
@@ -78,6 +80,13 @@ namespace Ecommerce.Utils
                 return ValidEmail;
             }
 
+            var regexItem = new Regex("^[a-z0-9]+$");
+
+            if (regexItem.IsMatch(email))
+            {
+                return false;
+            }
+
             int indexArr = email.IndexOf("@");
 
             if (indexArr > 0)
@@ -114,5 +123,15 @@ namespace Ecommerce.Utils
             return new Adress(result.Street, result.District, result.City, result.State, result.Zip, result.UniqueZip);
         }
 
+        public static bool CheckBDate(DateTime Birthday) //Checks if the user is older than 16 and younger than 150 
+        {
+            DateTime DateToday = DateTime.Today;
+            int Age = DateToday.Year - Birthday.Year;
+            if (Birthday.Month > DateToday.Month) Age -= 1;
+            if (Birthday.Month == DateToday.Month || Birthday.Day > DateToday.Day) Age -= 1;
+
+            if (Age >= 16 || Age <= 150) return true;
+            return false;
+        }
     }
 }
