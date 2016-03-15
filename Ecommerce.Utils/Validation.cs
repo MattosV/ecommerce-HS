@@ -80,13 +80,6 @@ namespace Ecommerce.Utils
                 return ValidEmail;
             }
 
-            var regexItem = new Regex("^[a-z0-9]+$");
-
-            if (regexItem.IsMatch(email))
-            {
-                return false;
-            }
-
             int indexArr = email.IndexOf("@");
 
             if (indexArr > 0)
