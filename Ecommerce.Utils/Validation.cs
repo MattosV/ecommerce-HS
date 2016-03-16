@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace Ecommerce.Utils
+﻿namespace Ecommerce.Utils
 {
     public static class Validation
     {

@@ -99,7 +99,6 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
-    <Folder Include="Deploys" />
     <Folder Include="PostScripts" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +115,6 @@
     <Build Include="Tables\Users.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Deploys\Ecommerce.Database.publish.xml" />
+    <None Include="Ecommerce.Database.publish.xml" />
   </ItemGroup>
 </Project>
