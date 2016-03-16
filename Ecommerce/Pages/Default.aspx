@@ -53,7 +53,7 @@
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <div style="float: left;">
-              <img src="1.jpg" alt="HungerGames" class="img-responsive">
+              <img src="../Images/1.jpg" alt="HungerGames" class="img-responsive">
           </div>  
           <div style="float: left;">
               <br />
@@ -63,7 +63,7 @@
 
         <div class="item">
           <div style="float: left;">
-              <img src="2.jpg" alt="Minions" class="img-responsive">
+              <img src="../Images/2.jpg" alt="Minions" class="img-responsive">
           </div>  
           <div style="float: left;">
               <br />
@@ -73,7 +73,7 @@
 
         <div class="item">
           <div style="float: left;">
-              <img src="3.jpg" alt="Deadpool" class="img-responsive">
+              <img src="../Images/3.jpg" alt="Deadpool" class="img-responsive">
           </div>  
           <div style="float: left;">
               <br />
@@ -83,7 +83,7 @@
 
         <div class="item">
           <div style="float: left;">
-              <img src="4.jpg" alt="GoG" class="img-responsive">
+              <img src="../Images/4.jpg" alt="GoG" class="img-responsive">
           </div>  
           <div style="float: left;">
               <br />
@@ -93,7 +93,7 @@
 
         <div class="item">
           <div style="float: left;">
-              <img src="5.jpg" alt="SWTFA" class="img-responsive">
+              <img src="../Images/5.jpg" alt="SWTFA" class="img-responsive">
           </div>
           <div style="float: left;">
               <br />

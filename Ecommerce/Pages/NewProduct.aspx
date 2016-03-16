@@ -17,10 +17,10 @@
             <input type="text" name="description" class="form-control" /><br />
 
             <label class="control-label col-md-2">Quantity: </label> 
-            <input type="number" name="quantity" class="form-control" /><br />
+            <input type="number" name="quantity" class="form-control" min="0" /><br />
 
             <label class="control-label col-md-2">Price: </label> 
-            <input type="number" name="price" class="form-control" /><br />
+            <input type="number" name="price" class="form-control" min="0"/><br />
 
             <label class="control-label col-md-2">Category: </label>
             <select name="category" class="form-control">
