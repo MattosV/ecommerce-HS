@@ -149,6 +149,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\1.jpg" />
+    <Content Include="Pages\2.jpg" />
+    <Content Include="Pages\3.jpg" />
+    <Content Include="Pages\4.jpg" />
+    <Content Include="Pages\5.jpg" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\Cart.aspx" />
     <Content Include="Pages\Contact.aspx" />
