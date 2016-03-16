@@ -89,7 +89,7 @@ dfn {
 }
 
 hr {
-  height: 0;
+  height: -42px;
   -moz-box-sizing: content-box;
        box-sizing: content-box;
 }
@@ -761,6 +761,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+    height: 21px;
 }
 
 .container:before,
@@ -4182,7 +4183,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-fixed-top {
-  top: -2px;
+  top: 0px;
   z-index: 1030;
 }
 
@@ -4503,11 +4504,14 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse {
   background-color: #222222;
   border-color: #080808;
-    height: 53px;
+    height: 57px;
 }
 
 .navbar-inverse .navbar-brand {
   color: #999999;
+    height: 16px;
+    width: 166px;
+    margin-bottom: 0px;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4555,6 +4559,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff;
+    margin-left: 0px;
 }
 
 .navbar-inverse .navbar-collapse,
