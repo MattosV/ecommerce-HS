@@ -4,5 +4,6 @@
     <h2><%: Title %>.</h2>
     <h3>Movies recommended for you!</h3>
 
+<%--    Add here list of recommended movies--%>
 
 </asp:Content>

@@ -10,7 +10,8 @@ namespace Ecommerce.Entities
         public int Id { get; set; }
         //Client's address info
         public string Street { get; set; }
-        public string Complement { get; set; }//Diplay a placeholder (Number, Apartment, building)
+        public string HouseNumber { get; set; } //add in database
+        public string Complement { get; set; }//Diplay a placeholder (Apartment, building)
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
@@ -20,6 +21,7 @@ namespace Ecommerce.Entities
         public string CPF { get; set; }
         public long CardNumber { get; set; } 
         public DateTime Birthday { get; set; }
+        public string Email { get; set; }
 
         public virtual ICollection<Sales> Sales { get; set; } 
         public virtual ICollection<MovieSales> Movies { get; set; } 

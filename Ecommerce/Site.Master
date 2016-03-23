@@ -65,6 +65,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
+            <br />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> Movie's Ecommerce- My ASP.NET Application</p>
                 <p><i>wow!</i> :-O</p>
