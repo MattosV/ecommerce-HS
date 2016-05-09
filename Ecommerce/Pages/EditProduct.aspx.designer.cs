@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ecommerce
+namespace Ecommerce.Web.Pages
 {
 
 
-    public partial class _Default
+    public partial class EditProduct
     {
     }
 }

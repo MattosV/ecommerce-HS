@@ -89,7 +89,7 @@ dfn {
 }
 
 hr {
-  height: 0;
+  height: -42px;
   -moz-box-sizing: content-box;
        box-sizing: content-box;
 }
@@ -162,7 +162,7 @@ button,
 input,
 select,
 textarea {
-  margin: 0;
+  margin: 0 0 7px 0;
   font-family: inherit;
   font-size: 100%;
 }
@@ -761,6 +761,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+    height: 21px;
 }
 
 .container:before,
@@ -4169,8 +4170,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   position: fixed;
-  right: 0;
-  left: 0;
+  right: 0px;
+  left: 0px;
   border-width: 0 0 1px;
 }
 
@@ -4182,7 +4183,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-fixed-top {
-  top: 0;
+  top: 0px;
   z-index: 1030;
 }
 
@@ -4503,10 +4504,14 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse {
   background-color: #222222;
   border-color: #080808;
+    height: 57px;
 }
 
 .navbar-inverse .navbar-brand {
   color: #999999;
+    height: 16px;
+    width: 166px;
+    margin-bottom: 0px;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4554,6 +4559,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff;
+    margin-left: 0px;
 }
 
 .navbar-inverse .navbar-collapse,
